@@ -9,6 +9,7 @@
           - ip address 10.1.1.1 255.255.255.255
           - no shut
         parents: interface Loopback0
+      when: router_os == "Cisco"
       register: result
       
   hosts: juniper_router
@@ -19,5 +20,6 @@
         lines:
           - set interfaces lo0.0 family inet address 10.2.2.2/32
           - commit
+      when: router_os == "Juniper"
       register: result
   
